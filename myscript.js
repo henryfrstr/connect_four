@@ -1,7 +1,7 @@
 var player1 = prompt("Player One: Enter your name, you'll be Blue");
 var player1Color = 'rgb(86, 151, 255)'
 
-var player2 = prompt("Player Two: Enter your name, you'll be Blue");
+var player2 = prompt("Player Two: Enter your name, you'll be Red");
 var player2Color = 'rgb(237, 45, 73)'
 
 var gane_on = true;
@@ -32,12 +32,12 @@ function checkButtom(colIndex){
 }
 
 function colorMatchCheck(one,two,three,four){
-    return (one === two && one === three %% one ===four && one !== 'rgb(128, 128, 128)' && one !== undefined)
+    return (one === two && one === three && one ===four && one !== 'rgb(128, 128, 128)' && one !== undefined)
 }
 
 // Check for horizantal wins
 function horizantalWinCheck(){
-    for (var row = 0; row < ; row++){
+    for (var row = 0; row < 6; row++){
         for (var col = 0; col < 4; col++){
             if (colorMatchCheck(reportColor(row,col), reportColor(row, col+1), reportColor(row,col+2), reportColor(row,col+3))){
                 console.log('vertical');
@@ -54,7 +54,7 @@ function horizantalWinCheck(){
 function verticalWinCheck(){
     for (var col = 0; col < 7; col++){
         for (var row = 0; row < 3; row++){
-            if (colorMatchCheck(reportColor(row,col), reportColor(row, col+1), reportColor(row,col+2), reportColor(row,col+3))){
+            if (colorMatchCheck(reportColor(row,col), reportColor(row+1, col), reportColor(row+2,col), reportColor(row+3,col))){
                 console.log('horiz');
                 reportWin(row,col);
                 return true;
